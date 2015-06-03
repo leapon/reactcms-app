@@ -5,14 +5,31 @@
 'use strict';
 
 var React = require('react-native');
+
+var MOCKED_MOVIES_DATA = [
+  {title: 'Title', year: '2015', posters: {thumbnail: 'http://i.imgur.com/UePbdph.jpg'}},
+];
+
 var {
   AppRegistry,
+  Image,
   StyleSheet,
   Text,
   View,
 } = React;
 
 var cmsapp = React.createClass({
+  render: function() {
+    var movie = MOCKED_MOVIES_DATA[0];
+    return (
+      <View style={styles.container}>
+        <Text>{movie.title}</Text>
+        <Text>{movie.year}</Text>
+        <Image source={{uri: movie.posters.thumbnail}} />
+      </View>
+    );
+  }
+  /*
   render: function() {
     return (
       <View style={styles.container}>
@@ -25,10 +42,12 @@ var cmsapp = React.createClass({
         <Text style={styles.instructions}>
           Press Cmd+R to reload,{'\n'}
           Cmd+D or shake for dev menu
+          Hello React Native
         </Text>
       </View>
     );
   }
+  */
 });
 
 var styles = StyleSheet.create({
